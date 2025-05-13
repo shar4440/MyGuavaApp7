@@ -7,11 +7,14 @@ maven 'Maven'
 }
 stages{
 stage('Checkout'){
- git branch: 'master',url : 'https://shar4440/MyGuavaApp7.git'
+ steps{ git branch: 'master',url : 'https://shar4440/MyGuavaApp7.git'}
+
 }
-stage('Build'){sh 'maven clean package'}
-stage('Test') {sh 'mvn test'}
-stage('Run-application'){sh 'mvn exec:java -Dexec.mainClass="com.example.App"'}
+stage('Build'){
+ steps{sh 'maven clean package'}
+}
+stage('Test') {steps{sh 'mvn test'}}
+stage('Run-Application'){steps{sh 'mvn exec:java -Dexec.mainClass="com.example.App"'}}
 }
 
 post{
