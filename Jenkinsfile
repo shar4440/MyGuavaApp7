@@ -13,7 +13,9 @@ stage('Checkout'){
 
 }
 stage('Build'){
- steps{sh 'maven clean package'}
+ steps{
+  sh 'mvn clean package'
+ }
 }
 stage('Test') {
  steps{
